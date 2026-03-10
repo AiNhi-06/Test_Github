@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng nhập - Tech4Future</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI', Arial, sans-serif;}
+body{display:flex;flex-direction:column;min-height:100vh;background:#f4f7f6;}
+
+/* Header */
+header{
+background:white;
+padding:15px 5%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo-container img{height:100px;}
+
+.search-bar{flex:1;margin:0 30px;}
+.search-bar input{
+width:100%;
+padding:12px 15px;
+border:2px solid #0c69f5;
+border-radius:30px;
+}
+
+/* Menu */
+.nav-menu{
+background:#026ad1;
+color:white;
+padding:10px 5%;
+}
+
+.nav-menu a{
+color:white;
+text-decoration:none;
+margin-right:20px;
+font-size:14px;
+}
+
+/* Form */
+.main-content{
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:40px 0;
+}
+
+.container{
+width:420px;
+background:white;
+padding:35px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+h2{text-align:center;margin-bottom:20px;}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+button{
+width:100%;
+padding:12px;
+border:none;
+background:#4a8dd1;
+color:white;
+font-size:16px;
+border-radius:6px;
+cursor:pointer;
+}
+
+.divider{text-align:center;margin:15px 0;color:#888;}
+
+.google-btn{
+background:white;
+color:#555;
+border:1px solid #ddd;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+}
+
+.link{text-align:center;margin-top:10px;}
+
+/* Footer */
+footer{
+background:#fdfcfc;
+color:#7e7a7a;
+padding:40px 5%;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.footer-col h4{
+color:#2f6fa3;
+margin-bottom:15px;
+}
+
+.footer-col li{
+list-style:none;
+line-height:2;
+}
+
+.footer-col a{
+color:#747171;
+text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+<div class="main-content">
+<div class="container">
+
+<h2>Đăng nhập</h2>
+
+<input type="text" placeholder="Tên đăng nhập">
+<input type="password" placeholder="Mật khẩu">
+
+<button>Đăng nhập</button>
+
+<div class="divider">hoặc</div>
+
+<button class="google-btn">
+<img src="https://cdn-icons-png.flaticon.com/512/300/300221.png" width="20">
+Đăng nhập bằng Google
+</button>
+
+<div class="link">
+Chưa có tài khoản? <a href="register.html">Đăng ký</a>
+</div>
+
+</div>
+</div>
+
+<footer>
+<div class="footer-grid">
+
+<div class="footer-col">
+<h4>Techfuture4</h4>
+<p>Chuyên linh kiện máy tính, PC Gaming, Workstation cao cấp.</p>
+<p>📍 Quy Nhơn, Bình Định</p>
+<p>📞 0986.552.233</p>
+<p>📧 contact@tech4future.vn</p>
+</div>
+
+<div class="footer-col">
+<h4>Hỗ trợ khách hàng</h4>
+<ul>
+<li><a href="#">Hướng dẫn mua hàng</a></li>
+<li><a href="#">Chính sách đổi trả</a></li>
+<li><a href="#">Chính sách bảo hành</a></li>
+<li><a href="#">Phương thức thanh toán</a></li>
+<li><a href="#">Vận chuyển và giao hàng</a></li>
+</ul>
+</div>
+
+<div class="footer-col">
+<h4>Về chúng tôi</h4>
+<ul>
+<li><a href="#">Giới thiệu</a></li>
+<li><a href="#">Liên hệ</a></li>
+<li><a href="#">Tin tức công nghệ</a></li>
+</ul>
+</div>
+
+</div>
+</footer>
+
+</body>
+</html>

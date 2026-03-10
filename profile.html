@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tài khoản - TTCGShop</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #ffffff;
+      color: #333333;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    /* Header chung cho mọi trang */
+    .site-header {
+      background: #ffffff;
+      border-bottom: 1px solid #e0e0e0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    }
+
+    .header-top {
+      background: #f8f9fa;
+      padding: 8px 0;
+      font-size: 0.9rem;
+      color: #495057;
+    }
+
+    .header-main {
+      padding: 12px 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .logo a {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #212529;
+      text-decoration: none;
+    }
+
+    .nav-menu a {
+      margin-left: 24px;
+      color: #495057;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: #007bff;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .header-actions a {
+      color: #495057;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+
+    .header-actions a:hover {
+      color: #007bff;
+    }
+
+    /* Nội dung chính (giữ nguyên như cũ nhưng thêm margin-top cho header) */
+    .main-wrapper {
+      padding: 30px 0;
+    }
+
+    .content-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 15px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .sidebar {
+      width: 260px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 20px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .user-profile {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #e9ecef;
+      margin: 0 auto 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      color: #6c757d;
+      border: 2px solid #dee2e6;
+    }
+
+    .username {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #212529;
+    }
+
+    .menu-list {
+      list-style: none;
+    }
+
+    .menu-item a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 15px;
+      color: #495057;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    .menu-item a:hover,
+    .menu-item a.active {
+      background: #e9ecef;
+      color: #007bff;
+    }
+
+    .menu-item i {
+      width: 20px;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+
+    .logout a {
+      color: #dc3545 !important;
+      margin-top: 30px;
+    }
+
+    .main-content {
+      flex: 1;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 25px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .breadcrumb {
+      color: #6c757d;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .breadcrumb a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    .welcome-box {
+      text-align: center;
+      padding: 80px 30px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      border: 1px solid #ced4da;
+    }
+
+    .welcome-icon {
+      font-size: 3.5rem;
+      color: #007bff;
+      margin-bottom: 15px;
+    }
+
+    .welcome-title {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      color: #212529;
+    }
+
+    .welcome-text {
+      color: #495057;
+      max-width: 500px;
+      margin: 0 auto 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #007bff;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background: #0056b3;
+    }
+
+    /* Footer chung */
+    .site-footer {
+      background: #f8f9fa;
+      border-top: 1px solid #e0e0e0;
+      padding: 40px 0 20px;
+      margin-top: 40px;
+      color: #495057;
+      font-size: 0.95rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+    }
+
+    .footer-col h4 {
+      margin-bottom: 15px;
+      color: #212529;
+      font-size: 1.1rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-col a {
+      color: #495057;
+      text-decoration: none;
+    }
+
+    .footer-col a:hover {
+      color: #007bff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #e0e0e0;
+      color: #6c757d;
+    }
+
+    @media (max-width: 768px) {
+      .content-container { flex-direction: column; }
+      .sidebar { width: 100%; }
+      .header-content { justify-content: center; }
+      .nav-menu a { margin: 0 12px; font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header chung (dùng cho mọi trang) -->
+  <header class="site-header">
+    <div class="header-top">
+      <div class="container">
+        <div style="text-align: center;">
+          Giao hàng toàn quốc - Đổi trả dễ dàng - Thanh toán tiện lợi - Hỗ trợ nhiệt tình
+        </div>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <a href="/">
+          <img src="image/T4F.png" 
+         alt="Tech4Future" 
+         style="height: 50px; width: auto; max-width: 220px; vertical-align: middle;">
+            </a>
+          </div>
+
+          <nav class="nav-menu">
+            <a href="/">Trang chủ</a>
+            <a href="/danh-muc">Sản phẩm</a>
+            <a href="/xay-dung-pc">Xây dựng PC</a>
+            <a href="/tin-tuc">Tin tức</a>
+            <a href="/tai-khoan" class="active">Tài khoản</a>
+          </nav>
+
+          <div class="header-actions">
+            <a href="tel:0986552233"><i class="fas fa-phone"></i> 0986.552.233</a>
+            <a href="/gio-hang"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Nội dung chính -->
+  <div class="main-wrapper">
+    <div class="content-container">
+      <!-- Sidebar trái -->
+      <aside class="sidebar">
+        <div class="user-profile">
+          <div class="avatar"><i class="fas fa-user"></i></div>
+          <div class="username">Ái Nhi</div>
+        </div>
+
+        <ul class="menu-list">
+          <li class="menu-item"><a href="#" class="active"><i class="fas fa-user-circle"></i> Thông tin tài khoản</a></li>
+          <li class="menu-item"><a href="#"><i class="fas fa-shopping-bag"></i> Quản lý đơn hàng</a></li>
+          <li class="menu-item"><a href="#"><i class="fas fa-lock"></i> Thay đổi mật khẩu</a></li>
+          <li class="menu-item logout"><a href="#"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a></li>
+        </ul>
+      </aside>
+
+      <!-- Nội dung chính -->
+      <main class="main-content">
+        <div class="breadcrumb">
+          <a href="/">Trang chủ</a> > Tài khoản
+        </div>
+
+        <div class="welcome-box">
+          <div class="welcome-icon"><i class="fas fa-user-shield"></i></div>
+          <h2 class="welcome-title">Xin chào, Ái Nhi!</h2>
+          <p class="welcome-text">
+            Bạn đang ở trang tài khoản cá nhân. Vui lòng chọn một mục ở menu bên trái để xem hoặc chỉnh sửa thông tin.
+          </p>
+          <a href="#" class="btn">Xem đơn hàng gần nhất</a>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Footer chung (dùng cho mọi trang) -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Tech4Future</h4>
+        <p>Chuyên linh kiện máy tính, PC Gaming, Workstation cao cấp.</p>
+        <p><i class="fas fa-map-marker-alt"></i> Quy Nhơn, Bình Định</p>
+        <p><i class="fas fa-phone"></i> 0986.552.233</p>
+        <p><i class="fas fa-envelope"></i> contact@tech4future.vn</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Hỗ trợ khách hàng</h4>
+        <ul>
+          <li><a href="#">Hướng dẫn mua hàng</a></li>
+          <li><a href="#">Chính sách đổi trả</a></li>
+          <li><a href="#">Chính sách bảo hành</a></li>
+          <li><a href="#">Phương thức thanh toán</a></li>
+          <li><a href="#">Vận chuyển & Giao hàng</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Về chúng tôi</h4>
+        <ul>
+          <li><a href="#">Giới thiệu</a></li>
+          <li><a href="#">Liên hệ</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 Tech4Future. All rights reserved. | Thiết kế bởi [Teach4Future]
+    </div>
+  </footer>
+
+</body>
+</html>
